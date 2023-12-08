@@ -1,5 +1,7 @@
 package com.testing.services;
 
+import java.util.List;
+
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.stereotype.Service;
 
@@ -15,5 +17,13 @@ public class UserService {
 	}
 	public User getUserById(Long userId) {
 	return userRepository.findById(userId).orElse(null);
+	}
+	public User addUser(User user)
+	{
+		return userRepository.save(user);
+	}
+	public List<User> getAlList()
+	{
+		return userRepository.findAll();
 	}
 }
